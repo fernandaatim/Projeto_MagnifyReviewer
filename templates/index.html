@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnify Reviewer</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoiYm9zY2hcL2ZpbGVcLzJGdzFKM1pWQmQ1OHh2YmVxVnpNLnBuZyJ9:bosch:nU4nNMJlDJCRLZwO0TbWBWDxqrnKWRRfXXDdV2hqsKo?width={width}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../static/styles/index_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div id="card-spinner" class="card-spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+    </div>
+    <header></header>
+    <nav>
+        <div class="navbar navbar-nav" id="bar">
+            <div class="d-flex" id="bar">
+                <div class="navbar-brand mx-5 my-3">
+                    <img src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoiYm9zY2hcL2FjY291bnRzXC9hNVwvNDAwMDA5OFwvcHJvamVjdHNcLzIyOVwvYXNzZXRzXC8xYlwvMTE0MDUxXC9mMTQyMWFiZDVhODY2MzljOGM0ZjJlM2FiZjQ3MWFlYi0xNTkwNzQ2MjY1LnN2ZyJ9:bosch:lFhI6BBD0LVPSURyRBjLLsVySpt3hxhyE95UqXOfrOY?width={width}&rect=0,0,160,36&reference_width=160" width="160px">
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 py-5 border d-flex justify-content-center" id="space">
+                <img src="static/images/logo.png" width="70px" >
+                <label class="text-center mx-2" id="logo">Magnify Reviewer</label>
+            </div>
+        </div>
+        <div class="row d-flex flex-column mt-5 pt-2">
+            <div class="col-12" id="import-content">
+                <div class="d-flex flex-column" id="steps-text">
+                    <div><label class="form-label me-1" id="title-text">Step 1:</label><label class="label">Click on the "Upload" button and select your .txt file</label></div>
+                    <div><label class="form-label me-1" id="title-text">Step 2:</label><label class="label">Wait a few moments for the upload to complete...</label></div>
+                    <div><label class="form-label me-1" id="title-text">Step 3:</label><label class="label">Scroll down the page to view the results.</label></div>
+                </div>
+            </div>
+            <div class="col-12" id="import-content">    
+                <div class="card-import d-flex flex-column border">
+                    <label class="label-2 text-center mx-2 mt-5">Import your <i style="color:#077bc9;">email_file.txt</i> file to Magnify Reviewer:</label>
+                    <div class="d-flex justify-content-center mt-4">
+                        <form id="file-form" method="POST" enctype="multipart/form-data">
+                            <input type="file" id="file-input" name="emails" style="display: none;" required/>
+                            <button class="btn btn-primary text-white my-2" id="file-btn" type="submit">Upload</button>
+                        </form>                        
+                    </div>
+                    <div class="d-flex justify-content-center mt-3"><label class="form-label text-center" id="file-name">File type .txt</label></div>
+                    <div class="d-flex justify-content-center my-2"><label class="form-label text-center" id="file-message" style="visibility:hidden; color: green">Sucess!</label></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="row-2">
+            <div class="col-12 d-flex justify-content-center">
+                <canvas id="mediaChart" class="d-flex align-self-center d-none"></canvas> 
+                <div id="table-scores">
+                    <table id="table-table-scores" class="table table-striped table-light text-center">
+                        <thead id="cabecao">
+                            <tr id="cabecao">
+                                <th>Nº E-mail<a data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<span> Number of current e-mail</span>"><i class="bi bi-info-circle ps-2 text-white"></i></a></th>
+                                <th>Grammar<a data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<span> Grammar errors.<br>Count: -2 points per error.</span>"><i class="bi bi-info-circle ps-2 text-white"></i></a></th>
+                                <th>Greeting<a data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<span> Incorrect or absent greeting. Count: -1 points per error.</span>"><i class="bi bi-info-circle ps-2 text-white"></i></a></th>
+                                <th>Spacing<a data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<span> Confusion or absence of spacement.<br> Count: -1 points per error.</span>"><i class="bi bi-info-circle ps-2 text-white"></i></a></th>
+                                <th>Ending<a data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<span> Incorrect or absent ending. <br> Count: -1 points per error.</span>"><i class="bi bi-info-circle ps-2 text-white"></i></a></th>
+                                <th>Final Score<a data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<span> The inicial score is 100. The final score is calculated through discounts of each error.</span>"><i class="bi bi-info-circle ps-2 text-white"></i></a></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tb-resultados">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex flex-column mx-5">
+                    <button id="export-btn" class="row btn btn-primary">Export</button>
+                    <button id="chart-btn" class="row mt-2 btn btn-primary" onclick="toggle()">Statistics</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex flex-column my-5" id="contact-card">
+                    <label class="form-label" id="title-text">Need help? Contact us:</label>
+                    <label class="form-label my-2">Name<input class="form-control"></label>
+                    <label class="form-label my-2">Bosch's Site<input class="form-control"></label>
+                    <label class="form-label my-2">About<textarea class="form-control" rows="10" col="5"></textarea></label>
+                    <button class="btn btn-primary text-white my-2" type="submit">Send</button>
+                    <img class="position-absolute z-n1 end-0" id="computer-image" src="static/images/computer_image.png">
+                </div>
+            </div>
+        </div>
+    </div>  
+
+
+    <footer>
+        <hr>
+        <div class="ms-5 my-4">© 2024 Robert Bosch - DTA</div>
+    </footer>
+</body>
+<script src="../static/scripts/script_page.js"></script>
+<script src="../static/scripts/script_pdf.js"></script>
+<script src="../static/scripts/script_chart.js"></script>
+<script src="../static/scripts/script_loading.js"></script>
+</html>
+
+
+
+
+<!-- <tr>
+    <th>ID</th>
+    <th>Created</th>
+    <th>Assigned To</th>
+    <th>State</th>
+    <th>Date</th>
+    <th>Additional</th>
+    <th>Comment</th>
+    <th>Number</th>
+    <th>Score</th>
+</tr> -->

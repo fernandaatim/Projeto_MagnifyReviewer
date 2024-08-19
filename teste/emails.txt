@@ -1,0 +1,87 @@
+===START EMAIL===
+Hi there
+
+Your order was dispatched yesterday. If you need anything else, just let us know.
+
+Cheers,
+Alex
+===END EMAIL===
+
+===START EMAIL===
+Hi,
+
+Your pacakge is on it's way. We will update you when it arrives.
+
+Thanks,
+Team
+===END EMAIL===
+
+===START EMAIL===
+Dear Client,
+
+We are pleased to inform you that your purchase has been shippd. Please let us kno if you have any questions.
+
+Sincerely,
+Support
+===END EMAIL===
+
+===START EMAIL===
+Hallo
+
+I would like to remind you about the meeting scheduled for tomorrow. If you need more information, please get in touch.
+
+Carlos
+===END EMAIL===
+
+===START EMAIL===
+Hello,
+
+I just wanted to let you know about the upcoming deadline. Make sure to complete the necessary steps by then.
+
+Best,
+Sam
+===END EMAIL===
+
+===START EMAIL===
+Hey,
+
+Meeting is on Friday. Check your calendar.
+
+Regards,
+Emily
+===END EMAIL===
+
+===START EMAIL===
+Dear Customer,
+
+Thank you for your order. It has been processed and will be shipped soon. For any concerns please contact us.
+
+Kind regards,
+Customer Service
+===END EMAIL===
+
+===START EMAIL===
+Hello,
+
+Your order has been shipped.
+
+Support Team
+===END EMAIL===
+
+===START EMAIL===
+Dear Sir,
+
+I am wirting to inform you about your order. It was sheepped yesterday and should arrive soon. If you have any questions, please do not esitate to contact us.
+
+Best regards,
+Maria
+===END EMAIL===
+
+===START EMAIL===
+Dear Client,
+
+We are pleased to inform you that your purchase has been shippd. Please let us kno if you have any questions.
+
+Sincerely,
+Support
+===END EMAIL===

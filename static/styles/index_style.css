@@ -1,0 +1,171 @@
+header{
+    background-image: url(../images/bosch_supergraphic.png) !important;
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background-size: cover;
+}
+
+*{
+    font-family:"boschsans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    border-radius: 0 !important;
+}
+
+footer{
+    width: 100% !important;
+}
+
+thead{
+    position: sticky;
+    top: 0; 
+}
+
+th{
+    width: 300px !important;
+}
+
+#space{
+    background-image: url(../images/back-bg.jpg) !important;
+}
+
+#ai-image{
+    opacity: 75%;
+}
+
+#computer-image{
+    margin-top: 10%;
+    margin-right: 10% !important;
+    opacity: 75%;
+    width: 450px;;
+}
+
+#row-2{
+    
+    margin-top: 15%;
+    margin-left: 3%;
+}
+
+.card-import{
+    margin-top: 3% !important;
+    justify-content: center;
+    width:450px;
+    height:350px;
+}
+
+.btn{
+    background-color: #005691;
+    border: none;
+    width: 200px;
+    font-size: 20px !important;
+}
+
+#export-btn{
+    width: 200px !important;
+}
+
+#chart-btn{
+    width: 200px !important;
+}
+
+/* NAV CONFIGS */
+#bar{
+    width: 200vh;
+}
+
+#nav-item3{
+    position: absolute;
+    right: 0;
+}
+
+#nav-item4{
+    position: absolute;
+    right: 0;
+    margin-right: 5%;
+}
+/*=================================*/
+#contact-card{
+    width: 30% !important;
+    margin-left: 5%;
+}
+
+#title-text{
+    font-size: 22px !important;
+    font-weight: 500 !important;
+    color:#077bc9;
+}
+
+#mediaChart{
+    width: 600px !important;
+    height:600px !important;
+}
+
+.label{
+    font-size: 20px;
+}
+
+.label-2{
+    font-size: 27px;
+}
+
+#logo{
+    margin-top: 1rem;
+    font-size: 30px;
+    font-weight: 500 !important;
+    color: RGB(28, 97, 161);
+}
+
+#import-content{
+    display: flex;
+    justify-content: center !important;
+}
+
+#table-scores{
+    max-width: 75% !important;
+}
+
+table{
+    border: gray 1px solid;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.table{
+    display: block !important;
+    max-height: 455.5px !important;
+    overflow-y: auto;
+}
+
+th{
+    background-color: #005691 !important;
+    color: white !important;
+}
+
+.bi{
+    font-size: 18px !important;
+}
+
+[class^="tooltip-inner"]{
+    background-color: #077bc9  !important;
+    border-radius: 5px !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+[class^="tooltip"]:before {
+    border-color:  #077bc9  transparent transparent transparent !important;
+}
+
+.card-spinner{
+    display:none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.2);
+}
+
+.spinner-border{
+    border-radius: 50% !important;
+}
