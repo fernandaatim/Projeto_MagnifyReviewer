@@ -31,7 +31,7 @@ function toggle()
         Rfinalizacao = finalizacao.reduce((a, b) => a + b, 0);
       };
       const data = [Rgramatica, Respacamento, Rsaudacao, Rfinalizacao];
-      const labels = ['Grammar', 'Greeting', 'Spacing', 'Ending'];
+      const labels = ['Gramática', 'Finalização', 'Saudação', 'Espaçamento'];
       const total = data.reduce((a, b) => a + b, 0);
       const percent = data.map((value) => (value / total) * 100);
 
@@ -40,7 +40,7 @@ function toggle()
         labels: labels,
         datasets:
         [{
-          label: 'Avarege Occurrences',
+          label: 'Média de ocorrências',
           data: data,
           backgroundColor:
           [
@@ -78,10 +78,7 @@ function toggle()
             title:
             {
               display: true,
-              text: 'Statistics',
-              font:{
-                size: 24,
-              }
+              text: 'Estatísticas'
             },
             tooltip:
             {

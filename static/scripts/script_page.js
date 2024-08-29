@@ -26,7 +26,6 @@ fileInput.addEventListener("change", (e) => {
     .then(result =>{
       document.getElementById("file-message").style.visibility = "hidden";
       fillTable();
-      location.reload();
     })
   }
 });

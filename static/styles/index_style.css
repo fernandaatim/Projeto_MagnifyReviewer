@@ -88,6 +88,11 @@ th{
     margin-left: 5%;
 }
 
+form{
+    display: flex!important;
+    flex-direction: column!important;
+}
+
 #title-text{
     font-size: 22px !important;
     font-weight: 500 !important;
